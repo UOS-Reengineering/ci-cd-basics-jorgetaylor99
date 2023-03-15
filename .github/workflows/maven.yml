@@ -6,8 +6,11 @@ on:
 
 jobs:
   build-and-test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v3
